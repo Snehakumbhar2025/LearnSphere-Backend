@@ -3,6 +3,7 @@ package com.learnsphere.service;
 import com.learnsphere.dto.LoginRequest;
 import com.learnsphere.dto.LoginResponse;
 import com.learnsphere.dto.UserRegistrationRequest;
+import com.learnsphere.entity.Role;
 import com.learnsphere.entity.User;
 import com.learnsphere.exception.EmailAlreadyExistsException;
 import com.learnsphere.repository.UserRepository;
@@ -33,7 +34,7 @@ public class UserService {
                 .fullName(request.getFullName())
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))
-                .role("STUDENT")
+                .role(Role.STUDENT)
                 .enabled(true)
                 .build();
         return userRepository.save(user);

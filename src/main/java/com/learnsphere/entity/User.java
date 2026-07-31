@@ -1,7 +1,9 @@
 package com.learnsphere.entity;
-
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.*;
 import lombok.*;
+import com.learnsphere.entity.Role;
 
 @Entity
 @Table(name = "users")
@@ -25,9 +27,11 @@ public class User {
     @Column(nullable = false)
     private String password;
 
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private String role;
+    private Role role;
 
     @Column(nullable = false)
     private boolean enabled;
+
 }
